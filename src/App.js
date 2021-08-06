@@ -1,9 +1,10 @@
 import './App.css';
+import LeftBlock from './components/leftBlock/LeftBlock';
 
 function App() {
   return (
     <div className="App">
-     start project
+     <LeftBlock />
     </div>
   );
 }
