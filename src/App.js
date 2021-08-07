@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core';
 import LeftBlock from './components/leftBlock/LeftBlock';
-import Status from './components/rightBlock/rightUp/Status';
+import RightBlock from './components/rightBlock/RightBlock';
 import { blue } from '@material-ui/core/colors'
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
           <LeftBlock />
         </Grid>
         <Grid item xs={6}>
-          <Status />
+          <RightBlock />
         </Grid>
       </Grid>
     </div>
