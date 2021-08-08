@@ -58,3 +58,5 @@ export const items = {
     capacity: "30000000000"
   },
 }
+
+export const names = ["ETF Stock", "ETF Bonds", "Lemonade Stand", "Ice Cream Truck", "House", "TownHouse", "Mansion", "Industrial Space", "Hotel Skyscraper", "Bullet-Speed Sky Railway"];
