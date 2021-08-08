@@ -1,4 +1,5 @@
 import { Grid } from '@material-ui/core';
+import { grey } from '@material-ui/core/colors';
 import React from 'react'
 import Block from './Block';
 
@@ -9,6 +10,10 @@ export default function Status() {
       <Grid
         container
         spacing={1}
+        style={{
+          backgroundColor: grey[200],
+          marginBottom: 20
+        }}
       >
         {userData.map((val) => (
           <Block key={val} name={val} />
