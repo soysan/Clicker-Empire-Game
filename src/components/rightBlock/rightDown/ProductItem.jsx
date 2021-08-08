@@ -18,7 +18,7 @@ export default function ProductItem(props) {
   const classes = useStyles();
 
   const GoToDetailHandler = (props) => {
-    console.log(props)
+
   };
 
   return (
