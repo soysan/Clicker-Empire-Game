@@ -2,14 +2,19 @@ import { Grid, Card, CardContent } from '@material-ui/core'
 import React from 'react'
 import ProductItem from './ProductItem';
 import { items, names } from './items.js'
-import { green } from '@material-ui/core/colors';
+import { green, grey } from '@material-ui/core/colors';
 
 export default function Products() {
   return (
     <>
       <Grid
         container
-        style={{ overflowY: 'scroll', height: 500}}
+        style={{
+          overflowY: 'scroll',
+          height: 500,
+          backgroundColor: grey[600],
+          // scrollbar hide?
+        }}
         spacing={2}
       >
         {names.map((product) => (
