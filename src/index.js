@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
+const InitialState = {
+  userName: 'Cheater',
+  password: 'Cheater',
+}
+const AuthContext = createContext(InitialState);
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AuthContext.Provider value={{AuthContext}}>
+      <App />
+    </AuthContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
