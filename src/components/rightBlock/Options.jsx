@@ -6,7 +6,6 @@ const useStyles = makeStyles((theme) => ({
   wrapper: {
     position: 'relative',
     marginTop: theme.spacing(1),
-    height: 380,
   },
   speedDial: {
     position: 'absolute',

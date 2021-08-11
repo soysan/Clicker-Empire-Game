@@ -3,6 +3,7 @@ import LeftBlock from './components/leftBlock/LeftBlock';
 import RightBlock from './components/rightBlock/RightBlock';
 import { blue } from '@material-ui/core/colors'
 import Options from './components/rightBlock/Options';
+
 function App() {
   return (
     <div style={{
