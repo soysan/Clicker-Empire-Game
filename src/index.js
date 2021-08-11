@@ -7,8 +7,7 @@ const InitialState = {
   userName: 'Cheater',
   password: 'Cheater',
 }
-const AuthContext = createContext(InitialState);
-
+export const AuthContext = createContext(InitialState);
 
 ReactDOM.render(
   <React.StrictMode>
