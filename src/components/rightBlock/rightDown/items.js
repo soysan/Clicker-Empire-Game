@@ -1,62 +1,16 @@
+import Item from '../../../models/item';
+
 export const items = {
-  "ETF Stock": {
-    name: "ETF Stock",
-    price: 300000,
-    capacity: "0.1%"
-  },
-  "ETF Bonds": {
-    name: "ETF Bonds",
-    price: 300000,
-    capacity: "0.07%"
-  },
-  "Lemonade Stand": {
-    name: "Lemonade Stand",
-    max: 1000,
-    price: 30000,
-    capacity: "300"
-  },
-  "Ice Cream Truck": {
-    name: "Ice Cream Truck",
-    max: 500,
-    price: 100000,
-    capacity: "120"
-  },
-  "House": {
-    name: "House",
-    max: 100,
-    price: 20000000,
-    capacity: "32000"
-  },
-  "TownHouse": {
-    name: "TownHouse",
-    max: 100,
-    price: 40000000,
-    capacity: "64000"
-  },
-  "Mansion": {
-    name: "Mansion",
-    max: 20,
-    price: 250000000,
-    capacity: "500000"
-  },
-  "Industrial Space": {
-    name: "Industrial Space",
-    max: 10,
-    price: 1000000000,
-    capacity: "2200000"
-  },
-  "Hotel Skyscraper": {
-    name: "Hotel Skyscraper",
-    max: 5,
-    price: 10000000000,
-    capacity: "25000000"
-  },
-  "Bullet-Speed Sky Railway": {
-    name: "Bullet-Speed Sky Railway",
-    max: 1,
-    price: 10000000000000,
-    capacity: "30000000000"
-  },
+  "ETF Stock": new Item("ETF Stock", 1, 0, "ETF 銘柄の購入分をまとめて加算し、毎秒 0.1% を取得します", 300000, "0.1%"),
+  "ETF Bonds": new Item("ERF Bonds", 1, 0, "債券 ETF の購入分をまとめて加算し、毎秒 0.07% を取得します。", 300000, "0.07%"),
+  "Lemonade Stand": new Item("Lemonade Stand", 2, 1000, "毎秒 30 円を取得します。", 30000, "30"),
+  "Ice Cream Truck": new Item("Ice Cream Truck", 2, 500, "毎秒 120 円を取得します。", 100000, "120"),
+  "House": new Item("House", 2, 100, "毎秒 32,000 円を取得します。", 20000000, "32000"),
+  "TownHouse": new Item("TownHouse", 2, 100, "毎秒 64,000 円を取得します。", 40000000, "64000"),
+  "Mansion": new Item("Mansion", 2, 20, "毎秒 500,000 円を取得します。", 250000000, "500000"),
+  "Industrial Space": new Item("Industrial Space", 2, 10, "毎秒 2,200,000 円を取得します。", 1000000000, "2200000"),
+  "Hotel Skyscraper": new Item("Hotel Skyscraper", 2, 5, "毎秒 25,000,000 円を取得します。", 10000000000, "25000000"),
+  "Bullet-Speed Sky Railway": new Item("Bullet-Speed Sky Railway", 2, 1, "毎秒 30,000,000,000 円を取得します。", 10000000000000, "30000000000"),
 }
 
 export const names = ["ETF Stock", "ETF Bonds", "Lemonade Stand", "Ice Cream Truck", "House", "TownHouse", "Mansion", "Industrial Space", "Hotel Skyscraper", "Bullet-Speed Sky Railway"];

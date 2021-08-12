@@ -43,7 +43,7 @@ export default function ProductItem(props) {
               {props.itemData.price}
             </Typography>
             <Typography variant="h6" gutterBottom>
-              +${props.itemData.capacity} / sec
+              +${props.itemData.effect} / sec
             </Typography>
           </Grid>
           <Typography variant="h5">count</Typography>
