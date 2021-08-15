@@ -18,7 +18,7 @@ export default function AuthPage() {
         alignItems="center"
         direction="column"
       >
-        <h1>Clicker Empier Game</h1>
+        <h1>Clicker Empire Game</h1>
         <form onSubmit={SubmitHandler}>
           <label>
             Name:
