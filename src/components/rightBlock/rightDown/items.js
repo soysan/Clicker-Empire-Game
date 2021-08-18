@@ -37,4 +37,4 @@ export const ProductsContext = {
   // "Hotel Skyscraper": new Item("Hotel Skyscraper", 2, 5, "毎秒 25,000,000 円を取得します。", 10000000000, "25000000", 0),
   // "Bullet-Speed Sky Railway": new Item("Bullet-Speed Sky Railway", 2, 1, "毎秒 30,000,000,000 円を取得します。", 10000000000000, "30000000000", 0),
 
-export const names = ["ETF Stock", "ETF Bonds", "Lemonade Stand", "Ice Cream Truck", "House", "TownHouse", "Mansion", "Industrial Space", "Hotel Skyscraper", "Bullet-Speed Sky Railway"];
+export const names = ["Flip Machine","ETF Stock", "ETF Bonds", "Lemonade Stand", "Ice Cream Truck", "House", "TownHouse", "Mansion", "Industrial Space", "Hotel Skyscraper", "Bullet-Speed Sky Railway"];
