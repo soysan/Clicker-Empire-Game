@@ -13,6 +13,7 @@ export default function LeftBlock() {
   const addCount = () => {
     dispatch({ type: 'INCREASE', state: user });
     user.count = user.count + 1;
+    user.money += userState.addPerClick;
   }
 
   return (
