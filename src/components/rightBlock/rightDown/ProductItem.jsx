@@ -31,6 +31,19 @@ export default function ProductItem(props) {
      GoToDetailHandler(item)
   }, [item])
 
+  let effectString = '';
+  switch (itemContext.type) {
+    case 'ability':
+      effectString = '/ click';
+      break;
+    case 'realEstate':
+      effectString = '/ sec';
+      break;
+    default:
+      effectString = '% / sec';
+      break;
+  }
+
   return (
     <>
       <div className={classes.info} onClick={ToggleHandler}>
@@ -53,7 +66,7 @@ export default function ProductItem(props) {
               {itemContext.price}
             </Typography>
             <Typography variant="h6" gutterBottom>
-              +${itemContext.effect} / sec
+              +${itemContext.effect + effectString}
             </Typography>
           </Grid>
           <Typography variant="h5">count</Typography>
