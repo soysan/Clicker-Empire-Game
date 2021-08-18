@@ -12,7 +12,6 @@ export function Reducer(state, action) {
         count: 0,
       }
     case 'OPEN_ITEM':
-      console.log(state)
       return {
         ...state,
         isOpen: !state.isOpen,
