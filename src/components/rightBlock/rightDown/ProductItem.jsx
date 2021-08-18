@@ -13,7 +13,8 @@ const useStyles = makeStyles({
   title: {
     fontSize: 18,
   }
-})
+});
+
 export default function ProductItem(props) {
   const classes = useStyles();
 

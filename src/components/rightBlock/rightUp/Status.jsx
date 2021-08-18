@@ -1,10 +1,12 @@
 import { Grid } from '@material-ui/core';
 import { grey } from '@material-ui/core/colors';
-import React from 'react'
+import React, { useContext } from 'react';
+import { UserContext } from '../../../App.js';
 import Block from './Block';
 
 export default function Status() {
-  const userData = ["Steven", "25 years old", "123 days", "$23412"];
+  const userData = useContext(UserContext);
+
   return (
     <>
       <Grid
@@ -15,9 +17,10 @@ export default function Status() {
           marginBottom: 20
         }}
       >
-        {userData.map((val) => (
-          <Block key={val} name={val} />
-        ))}
+        <Block name={userData.name} />
+        <Block name={userData.age} />
+        <Block name={userData.days} />
+        <Block name={userData.money} />
       </Grid>
     </>
   )
