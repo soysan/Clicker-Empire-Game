@@ -1,7 +1,7 @@
 import { Grid, Card, CardContent } from '@material-ui/core'
 import React from 'react'
 import ProductItem from './ProductItem';
-import { items, names } from './items.js'
+import { names } from './items';
 import { green, grey } from '@material-ui/core/colors';
 
 export default function Products() {
@@ -23,9 +23,9 @@ export default function Products() {
             item
             container
           >
-            <Card style={{ backgroundColor: green[200], width: 400 }}>
+            <Card style={{ backgroundColor: green[200], width: '100vw' }} >
               <CardContent>
-                <ProductItem itemData={items[product]} />
+                <ProductItem name={product} />
               </CardContent>
             </Card>
           </Grid>

@@ -1,30 +1,39 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core'
-import React from 'react'
+import { render } from '@testing-library/react';
+import React, { useReducer, useContext, useEffect} from 'react';
+import { Reducer } from '../../../reducer/Reducer';
+import { ProductsContext } from './items';
+import ProductDetail from './modal/ProductDetail';
 
 const useStyles = makeStyles({
-  root: {
-    minWidth: 300,
-  },
   info: {
     display: 'inline-block',
     margin: '0 2px',
     transform: 'scale(0.8)',
   },
   title: {
-    fontSize: 18,
+    fontSize: 30,
   }
 });
 
 export default function ProductItem(props) {
+  const itemContext = useContext(ProductsContext[props.name])
   const classes = useStyles();
+  const [item, dispatch] = useReducer(Reducer, itemContext)
 
-  const GoToDetailHandler = (props) => {
+  const ToggleHandler = () => dispatch({ state: item, type: "OPEN_ITEM" });
 
+  const GoToDetailHandler = (itemData) => {
+    render(<ProductDetail itemData={itemData} />);
   };
+
+  useEffect(() => {
+     GoToDetailHandler(item)
+  }, [item])
 
   return (
     <>
-      <div className={classes.root} onClick={(props) => GoToDetailHandler(props)}>
+      <div className={classes.info} onClick={ToggleHandler}>
         <Grid
           container
           direction="row"
@@ -38,13 +47,13 @@ export default function ProductItem(props) {
             alignItems="flex-start"
           >
             <Typography className={classes.title} variant="h1" gutterBottom>
-              {props.itemData.name}
+              {itemContext.name}
             </Typography>
             <Typography variant="h6" gutterBottom>
-              {props.itemData.price}
+              {itemContext.price}
             </Typography>
             <Typography variant="h6" gutterBottom>
-              +${props.itemData.effect} / sec
+              +${itemContext.effect} / sec
             </Typography>
           </Grid>
           <Typography variant="h5">count</Typography>
