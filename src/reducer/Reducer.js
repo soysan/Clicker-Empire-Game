@@ -9,7 +9,13 @@ export function Reducer(state, action) {
     case 'RESET':
       return {
         ...state,
-        count: 0
+        count: 0,
+      }
+    case 'OPEN_ITEM':
+      console.log(state)
+      return {
+        ...state,
+        isOpen: !state.isOpen,
       }
     default:
       return state;
