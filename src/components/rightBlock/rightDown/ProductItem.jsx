@@ -1,10 +1,9 @@
-import { Grid, makeStyles, Typography } from '@material-ui/core'
-import { render } from '@testing-library/react';
-import React, { useReducer, useContext, useEffect} from 'react';
-import { Reducer } from '../../../reducer/Reducer';
+import { Grid, makeStyles, Typography, Modal } from '@material-ui/core'
+import React, { useReducer, useContext, useEffect, useState } from 'react';
+// import { Reducer } from '../../../reducer/Reducer';
 import { ProductsContext } from './items';
 import ProductDetail from './modal/ProductDetail';
-
+import { green } from '@material-ui/core/colors';
 const useStyles = makeStyles({
   info: {
     display: 'inline-block',
@@ -19,17 +18,16 @@ const useStyles = makeStyles({
 export default function ProductItem(props) {
   const itemContext = useContext(ProductsContext[props.name])
   const classes = useStyles();
-  const [item, dispatch] = useReducer(Reducer, itemContext)
 
-  const ToggleHandler = () => dispatch({ state: item, type: "OPEN_ITEM" });
+  const [open, setOpen] = useState(false);
+  const ToggleHandler = () => {
+    setOpen(!open);
+  }
 
-  const GoToDetailHandler = (itemData) => {
-    render(<ProductDetail itemData={itemData} />);
-  };
-
-  useEffect(() => {
-     GoToDetailHandler(item)
-  }, [item])
+  // const ToggleHandler = () => {
+    //   dispatch({ state: item, type: "OPEN_ITEM" });
+    // }
+    // const [item, dispatch] = useReducer(Reducer, itemContext)
 
   let effectString = '';
   switch (itemContext.type) {
@@ -41,11 +39,27 @@ export default function ProductItem(props) {
       break;
     default:
       effectString = '% / sec';
-      break;
   }
 
   return (
     <>
+      <Modal
+        open={open}
+        onClose={ToggleHandler}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        style={{
+          position: "absolute",
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          backgroundColor: green[100],
+          boxShadow: 24,
+          p: 4,
+        }}
+      >
+        <ProductDetail itemData={itemContext} />
+      </Modal>
       <div className={classes.info} onClick={ToggleHandler}>
         <Grid
           container
@@ -66,7 +80,7 @@ export default function ProductItem(props) {
               {itemContext.price}
             </Typography>
             <Typography variant="h6" gutterBottom>
-              +${itemContext.effect + effectString}
+              +$ {itemContext.effect + effectString}
             </Typography>
           </Grid>
           <Typography variant="h5">count</Typography>
