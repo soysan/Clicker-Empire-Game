@@ -23,7 +23,7 @@ export default function LeftBlock() {
       justifyContent="center"
       alignItems="center"
     >
-      <Counter userData={userState}/>
+      <Counter userData={user}/>
       <Adb
         style={{ color: green[400], fontSize: 100 }}
         onClick={addCount}
