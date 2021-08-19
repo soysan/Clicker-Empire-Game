@@ -1,8 +1,7 @@
 import { Grid, makeStyles, Typography, Modal } from '@material-ui/core'
-import React, { useReducer, useContext, useEffect, useState } from 'react';
-// import { Reducer } from '../../../reducer/Reducer';
+import React, { useContext, useState } from 'react';
 import { ProductsContext } from './items';
-import ProductDetail from './modal/ProductDetail';
+import ProductDetail from './ProductDetail';
 import { green } from '@material-ui/core/colors';
 const useStyles = makeStyles({
   info: {
@@ -23,11 +22,6 @@ export default function ProductItem(props) {
   const ToggleHandler = () => {
     setOpen(!open);
   }
-
-  // const ToggleHandler = () => {
-    //   dispatch({ state: item, type: "OPEN_ITEM" });
-    // }
-    // const [item, dispatch] = useReducer(Reducer, itemContext)
 
   let effectString = '';
   switch (itemContext.type) {
@@ -54,11 +48,9 @@ export default function ProductItem(props) {
           left: '50%',
           transform: 'translate(-50%, -50%)',
           backgroundColor: green[100],
-          boxShadow: 24,
-          p: 4,
         }}
       >
-        <ProductDetail itemData={itemContext} />
+        <ProductDetail itemData={itemContext} ref={0}/>
       </Modal>
       <div className={classes.info} onClick={ToggleHandler}>
         <Grid
