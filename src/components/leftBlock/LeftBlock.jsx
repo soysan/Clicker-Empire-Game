@@ -3,7 +3,7 @@ import Adb from '@material-ui/icons/Adb';
 import Counter from './Counter';
 import Grid from '@material-ui/core/Grid'
 import { green } from '@material-ui/core/colors';
-import { UserContext } from '../../App';
+import { UserContext } from '../../context/user';
 import { Reducer } from '../../reducer/Reducer';
 
 export default function LeftBlock() {

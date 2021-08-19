@@ -1,7 +1,7 @@
 import { Grid, Card, CardContent } from '@material-ui/core'
 import React from 'react'
 import ProductItem from './ProductItem';
-import { names } from './items';
+import { names } from '../../../context/items';
 import { green, grey } from '@material-ui/core/colors';
 
 export default function Products() {

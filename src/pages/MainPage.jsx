@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import LeftBlock from '../components/leftBlock/LeftBlock';
 import RightBlock from '../components/rightBlock/RightBlock';
 import Options from '../components/rightBlock/Options';
-import { UserContext } from '../App';
+import { UserContext } from '../context/user';
 
 export default function MainPage() {
   const user = useContext(UserContext);

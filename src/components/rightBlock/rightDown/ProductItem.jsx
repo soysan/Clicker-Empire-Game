@@ -1,6 +1,6 @@
 import { Grid, makeStyles, Typography, Modal } from '@material-ui/core'
 import React, { useContext, useState } from 'react';
-import { ProductsContext } from './items';
+import { ProductsContext } from '../../../context/items';
 import ProductDetail from './ProductDetail';
 import { green } from '@material-ui/core/colors';
 const useStyles = makeStyles({

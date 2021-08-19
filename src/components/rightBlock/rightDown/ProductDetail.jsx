@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react'
 import { Button, Typography, Grid, Box } from '@material-ui/core'
-import { UserContext } from '../../../App';
+import { UserContext } from '../../../context/user';
 
 export default React.forwardRef(function ProductDetail(props, ref){
   const item = props.itemData;
