@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core';
 import { grey } from '@material-ui/core/colors';
-import React, { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../../App.js';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../../context/user';
 import Block from './Block';
 
 export default function Status() {
@@ -10,26 +10,24 @@ export default function Status() {
   const [days, setDays] = useState(userData.days);
   const [amountMoney, setAmountMoney] = useState(userData.money);
 
-  const birthdayOfUser = () => {
+  const birthdayOfUser = useCallback(() => {
     if (days === 365) setAge(age + 1);
     if (age !== 20 && days % 365 === 0) {
       userData.age += 1;
       setAge(age + 1);
     }
-  }
-  const moveMoney = () => {
-    setAmountMoney(userData.money)
-  }
+  }, [age, days, userData]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setDays(days + 1);
       userData.days += 1;
       birthdayOfUser();
-      moveMoney();
+      setAmountMoney(userData.money + userData.addPerSec);
+      userData.money += userData.addPerSec;
     }, 1000);
     return () => { clearInterval(intervalId) };
-  }, [userData, days, age, amountMoney, birthdayOfUser, moveMoney]);
+  }, [userData, days, amountMoney, birthdayOfUser]);
 
   return (
     <>
@@ -43,7 +41,7 @@ export default function Status() {
       >
         <Block name={userData.name} />
         <Block name={age} />
-        <Block name={userData.days} />
+        <Block name={days} />
         <Block name={amountMoney} />
       </Grid>
     </>
