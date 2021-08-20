@@ -4,7 +4,6 @@ export default class User {
     this.age = age;
     this.days = days;
     this.money = money;
-    this.items = items;
     this.count = 0;
     this.addPerClick = 0;
     this.addPerSec = 0;
