@@ -5,6 +5,7 @@ import { names } from '../../../context/items';
 import { green, grey } from '@material-ui/core/colors';
 
 export default function Products() {
+  console.log('product open')
   return (
     <>
       <Grid

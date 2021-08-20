@@ -5,6 +5,7 @@ import Products from './rightDown/Products'
 import { ProductsContext } from '../../context/items';
 
 export default function RightBlock() {
+  console.log('rightBlock open')
   const ItemsContext = createContext();
 
   return (

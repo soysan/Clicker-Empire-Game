@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Grid } from '@material-ui/core';
 import LeftBlock from '../components/leftBlock/LeftBlock';
 import RightBlock from '../components/rightBlock/RightBlock';
-import Options from '../components/rightBlock/Options';
+import Dials from '../components/rightBlock/dial/Dials';
 import { UserContext } from '../context/user';
 
 export default function MainPage() {
@@ -18,7 +18,7 @@ export default function MainPage() {
           <RightBlock />
         </Grid>
       </Grid>
-      <Options />
+      <Dials />
     </div>
   )
 }
