@@ -1,6 +1,6 @@
 
 export function Reducer(state, action) {
-  const effect = action.item.effect;
+  const item = action.item;
   const amount = action.amount;
   const times = action.times;
   const max = action.item.maxVal;
@@ -10,33 +10,33 @@ export function Reducer(state, action) {
       return ({
         ...state,
         money: state.money - amount,
-        addPerClick: state.addPerClick += effect * times,
+        addPerClick: state.addPerClick += item.effect * times,
       }, {
-        ...action.item,
+        ...item,
         maxVal: max - times,
       })
     case 'realEstate':
       return ({
         ...state,
         money: state.money - amount,
-        addPerSec: state.addPerSec + effect * times,
+        addPerSec: state.addPerSec += item.effect * times,
       }, {
-        ...action.item,
+        ...item,
         maxVal: max - times,
       })
     default:
       state.money -= amount;
-      const name = action.item.name;
+      const name = item.name;
       if (name === 'ETF Stock') {
-        action.item.price += Math.floor(action.item.price * 0.1 * action.times);
+        item.price += Math.floor(item.price * 0.1 * times);
         let total = 0;
         for (let i = 0; i < action.times; i++) {
-          total += parseInt(action.item.price * Math.pow(1 + effect, i));
+          total += parseInt(action.item.price * Math.pow(1 + item.effect, i));
         }
         state.addPerSec += total;
         state.stock += times;
       } else {
-        state.addPerSec += effect * times;
+        state.addPerSec += Math.floor(state.stock * item.effect * times);
       }
   }
 }
