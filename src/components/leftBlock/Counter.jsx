@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Typography } from '@material-ui/core';
-import { blue } from '@material-ui/core/colors';
+import { theme } from '../../color';
 
 export default function Counter(props) {
   const data = props.user;
@@ -8,7 +8,7 @@ export default function Counter(props) {
   return (
     <>
       <Grid
-        style={{ backgroundColor: blue[300], }}
+        style={{ backgroundColor: theme.palette.primary.main, borderRadius: '5px' }}
         container
         justifyContent="center"
         alignItems="center"

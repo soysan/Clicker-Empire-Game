@@ -4,6 +4,7 @@ import Counter from './Counter';
 import Grid from '@material-ui/core/Grid'
 import { green } from '@material-ui/core/colors';
 import { UserContext } from '../../context/user';
+import { theme } from '../../color';
 
 export default React.memo(function LeftBlock() {
   const user = useContext(UserContext);
@@ -34,10 +35,22 @@ export default React.memo(function LeftBlock() {
       alignItems="center"
     >
       <Counter user={data} />
-      <Adb
-        style={{ color: green[400], fontSize: 100 }}
-        onClick={updateStatus}
-      />
+      <div style={{
+        marginTop: '5rem',
+        height: '13rem',
+        borderRadius: '50%',
+        width: '13rem',
+        backgroundColor: theme.palette.secondary.light,
+      }}>
+        <img alt='hamburger' src='../../assets/hamburger.png'
+          style={{
+            width: '10rem',
+            marginTop: '1rem',
+            marginLeft: '2rem'
+          }}
+          onClick={updateStatus}
+        />
+      </div>
     </Grid>
   )
 })

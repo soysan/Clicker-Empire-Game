@@ -2,22 +2,21 @@ import { Grid, makeStyles, Typography, Modal } from '@material-ui/core'
 import React, { useContext, useState } from 'react';
 import { ProductsContext } from '../../../context/items';
 import ProductDetail from './ProductDetail';
-import { green } from '@material-ui/core/colors';
+import { theme } from '../../../color';
+
 const useStyles = makeStyles({
   info: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    backgroundColor: theme.palette.primary.light,
   },
   title: {
     fontSize: 30,
-  }
+    fontWeight: 400,
+  },
 });
 
 export default function ProductItem(props) {
-  const itemContext = useContext(ProductsContext[props.name])
   const classes = useStyles();
-
+  const itemContext = useContext(ProductsContext[props.name])
   const [open, setOpen] = useState(false);
   const ToggleHandler = () => {
     setOpen(!open);
@@ -47,7 +46,8 @@ export default function ProductItem(props) {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          backgroundColor: green[100],
+          backgroundColor: theme.palette.primary.light,
+          borderRadius: '5px'
         }}
       >
         <ProductDetail itemData={itemContext} ref={0}/>
@@ -74,6 +74,7 @@ export default function ProductItem(props) {
             <Typography variant="h6" gutterBottom>
               +$ {itemContext.effect + effectString}
             </Typography>
+            <img alt={itemContext.img.replace('.png', '')} src={itemContext.img} style={{width: '8rem'}}/>
           </Grid>
           <Typography variant="h5">count</Typography>
         </Grid>

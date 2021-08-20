@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core';
-import { grey } from '@material-ui/core/colors';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { theme } from '../../../color';
 import { UserContext } from '../../../context/user';
 import Block from './Block';
 
@@ -35,14 +35,15 @@ export default function Status() {
         container
         spacing={1}
         style={{
-          backgroundColor: grey[200],
-          marginBottom: 20
+          backgroundColor: theme.palette.primary.main,
+          marginBottom: 20,
+          borderRadius: '5px'
         }}
       >
-        <Block name={userData.name} />
-        <Block name={age} />
-        <Block name={days} />
-        <Block name={amountMoney} />
+        <Block title='User' name={userData.name} />
+        <Block title='Age' name={age} />
+        <Block title='Days' name={days} />
+        <Block title='$' name={amountMoney} />
       </Grid>
     </>
   )
