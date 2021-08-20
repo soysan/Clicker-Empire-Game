@@ -54,6 +54,7 @@ export default React.forwardRef(function ProductDetail(props, ref) {
           justifyContent='center'
           alignItems='center'
         >
+          <img alt="" src={item.img} style={{ width: '50px' }}/>
           <Typography id="modal-modal-title" variant="h3" component="h2">{item.name}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
