@@ -6,7 +6,7 @@ export default class User {
     this.money = money;
     this.items = items;
     this.count = 0;
-    this.addPerClick = 25;
+    this.addPerClick = 0;
     this.addPerSec = 0;
     this.stock = 0;
   }
