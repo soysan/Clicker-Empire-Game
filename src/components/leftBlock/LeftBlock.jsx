@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Adb from '@material-ui/icons/Adb';
 import Counter from './Counter';
 import Grid from '@material-ui/core/Grid'
@@ -6,7 +6,6 @@ import { green } from '@material-ui/core/colors';
 import { UserContext } from '../../context/user';
 
 export default React.memo(function LeftBlock() {
-  console.log('leftBlock open')
   const user = useContext(UserContext);
 
   const [count, setCount] = useState(user.count);
@@ -24,11 +23,6 @@ export default React.memo(function LeftBlock() {
     setClickAmount(user.addPerClick);
     setSecAmount(user.addPerSec);
   }
-
-  useEffect(() => {
-    setClickAmount(user.addPerClick);
-    setSecAmount(user.addPerSec)
-  }, [user.addPerClick, user.addPerSec])
 
   const data = { count: count, clickAmount: clickAmount, secAmount: secAmount }
 
