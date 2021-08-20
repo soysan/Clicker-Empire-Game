@@ -7004,6 +7004,11 @@
   "resolved" "https://registry.npmjs.org/jsesc/-/jsesc-0.5.0.tgz"
   "version" "0.5.0"
 
+"json-cyclic@^1.0.2":
+  "integrity" "sha512-K0Y9wQnrc13Ef+P8KY8SjFyVAz941CTrTVmu3oyQPExhaFFYXXLXnEuRi1tqYOS1B8WtFIxIwA7nHRJ64Uvf5Q=="
+  "resolved" "https://registry.npmjs.org/json-cyclic/-/json-cyclic-1.0.2.tgz"
+  "version" "1.0.2"
+
 "json-parse-better-errors@^1.0.1", "json-parse-better-errors@^1.0.2":
   "integrity" "sha512-mrqyZKfX5EhL7hvqcV6WG1yYjnjeuYDzDhhcAAUrq8Po85NBQBJP+ZDUT75qZQ98IkUoBqdkExkukOU7Ts2wrw=="
   "resolved" "https://registry.npmjs.org/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz"
