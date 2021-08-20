@@ -1,20 +1,36 @@
-import React, {useContext, useReducer} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Adb from '@material-ui/icons/Adb';
 import Counter from './Counter';
 import Grid from '@material-ui/core/Grid'
 import { green } from '@material-ui/core/colors';
 import { UserContext } from '../../context/user';
-import { Reducer } from '../../reducer/Reducer';
 
-export default function LeftBlock() {
+export default React.memo(function LeftBlock() {
+  console.log('leftBlock open')
   const user = useContext(UserContext);
-  const [userState, dispatch] = useReducer(Reducer, user);
+
+  const [count, setCount] = useState(user.count);
+  const [clickAmount, setClickAmount] = useState(user.addPerClick);
+  const [secAmount, setSecAmount] = useState(user.addPerSec);
 
   const addCount = () => {
-    dispatch({ type: 'INCREASE', state: user });
     user.count = user.count + 1;
-    user.money += userState.addPerClick;
+    user.money += user.addPerClick;
   }
+
+  const updateStatus = () => {
+    addCount();
+    setCount(count + 1)
+    setClickAmount(user.addPerClick);
+    setSecAmount(user.addPerSec);
+  }
+
+  useEffect(() => {
+    setClickAmount(user.addPerClick);
+    setSecAmount(user.addPerSec)
+  }, [user.addPerClick, user.addPerSec])
+
+  const data = { count: count, clickAmount: clickAmount, secAmount: secAmount }
 
   return (
     <Grid
@@ -23,11 +39,11 @@ export default function LeftBlock() {
       justifyContent="center"
       alignItems="center"
     >
-      <Counter userData={user}/>
+      <Counter user={data} />
       <Adb
         style={{ color: green[400], fontSize: 100 }}
-        onClick={addCount}
+        onClick={updateStatus}
       />
     </Grid>
   )
-}
+})
