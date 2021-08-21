@@ -1,5 +1,5 @@
 export default class User {
-  constructor(name, age, days, money, items) {
+  constructor(name, age, days, money) {
     this.name = name;
     this.age = age;
     this.days = days;

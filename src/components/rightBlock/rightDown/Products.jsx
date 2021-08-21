@@ -5,7 +5,6 @@ import { names } from '../../../context/items';
 import { theme } from '../../../color';
 
 export default function Products() {
-  console.log('product open')
   return (
     <>
       <Grid
