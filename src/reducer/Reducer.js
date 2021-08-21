@@ -9,7 +9,7 @@ export function Reducer(state, action) {
     case 'ability':
       return ({
         ...state,
-        money: state.money - amount,
+        money: state.money -= amount,
         addPerClick: state.addPerClick += item.effect * times,
       }, {
         ...item,
@@ -18,7 +18,7 @@ export function Reducer(state, action) {
     case 'realEstate':
       return ({
         ...state,
-        money: state.money - amount,
+        money: state.money -= amount,
         addPerSec: state.addPerSec += item.effect * times,
       }, {
         ...item,
