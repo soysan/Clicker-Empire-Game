@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { DialogContent, DialogTitle, Button, Dialog, Grid } from '@material-ui/core'
 import { UserState } from '../../../context/user'
-import { theme } from '../../../color';
+import { useHistory } from 'react-router-dom';
 
 export default function RestoreOption(props) {
   const [open, setOpen] = useState(false);
+  const history = useHistory();
 
   const ToggleHandler = () => {
     setOpen(!open);
@@ -12,7 +13,11 @@ export default function RestoreOption(props) {
   const RestoreHandler = () => {
     localStorage.removeItem(UserState);
     ToggleHandler();
+    setTimeout(() => {
+      history.push('/')
+    }, 2000)
   }
+  
   return (
     <>
       <Dialog
