@@ -1,17 +1,17 @@
 import React, { useContext, useState } from 'react';
-import Adb from '@material-ui/icons/Adb';
 import Counter from './Counter';
 import Grid from '@material-ui/core/Grid'
-import { green } from '@material-ui/core/colors';
 import { UserContext } from '../../context/user';
 import { theme } from '../../color';
+import zIndex from '@material-ui/core/styles/zIndex';
 
-export default React.memo(function LeftBlock() {
+export default function LeftBlock() {
   const user = useContext(UserContext);
 
   const [count, setCount] = useState(user.count);
   const [clickAmount, setClickAmount] = useState(user.addPerClick);
   const [secAmount, setSecAmount] = useState(user.addPerSec);
+
 
   const addCount = () => {
     user.count = user.count + 1;
@@ -19,13 +19,13 @@ export default React.memo(function LeftBlock() {
   }
 
   const updateStatus = () => {
-    addCount();
     setCount(count + 1)
+    addCount();
     setClickAmount(user.addPerClick);
     setSecAmount(user.addPerSec);
   }
 
-  const data = { count: count, clickAmount: clickAmount, secAmount: secAmount }
+  const data = { count: count, clickAmount: clickAmount, secAmount: secAmount };
 
   return (
     <Grid
@@ -33,24 +33,27 @@ export default React.memo(function LeftBlock() {
       direction="column"
       justifyContent="center"
       alignItems="center"
+
     >
       <Counter user={data} />
       <div style={{
-        marginTop: '5rem',
-        height: '13rem',
         borderRadius: '50%',
-        width: '13rem',
-        backgroundColor: theme.palette.secondary.light,
+        backgroundColor: theme.palette.secondary.main,
+        height: '300px',
+        width: '300px',
+        position: 'relative',
+        marginTop: '60px'
       }}>
         <img alt='hamburger' src='../../assets/hamburger.png'
           style={{
             width: '10rem',
-            marginTop: '1rem',
-            marginLeft: '2rem'
+            position: 'absolute',
+            top: '25%',
+            left: '25%'
           }}
           onClick={updateStatus}
         />
       </div>
     </Grid>
   )
-})
+}

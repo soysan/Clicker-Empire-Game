@@ -48,28 +48,47 @@ export default React.forwardRef(function ProductDetail(props, ref) {
       >
         <ErrorAlert message={message} />
       </Dialog>
-      <Box>
+      <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90%' }}>
         <Grid
           container
           justifyContent='center'
           alignItems='center'
         >
-          <img alt="" src={item.img} style={{ width: '50px' }}/>
-          <Typography id="modal-modal-title" variant="h3" component="h2">{item.name}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {item.desc}
-          </Typography>
-
+            <img alt="" src={item.img} style={{ width: '100px' }} />
+          <Grid
+            container
+            justifyContent="center"
+            alignItems='center'
+            direction='column'
+          >
+            <Typography id="modal-modal-title" variant="h3" component="h2" gutterBottom>{item.name}
+            </Typography>
+            <Typography id="modal-modal-description" gutterBottom>
+              {item.desc}
+            </Typography>
+          </Grid>
           <input type='number' placeholder={0} ref={numRef} />
           <Grid
             container
             direction='row'
             justifyContent='center'
             alignItems='center'
+            style={{marginTop: '16px'}}
           >
-            {/* <Button>Go back</Button> */}
-            <Button onClick={EffectShoppingHandler}>Purchase</Button>
+            <Button
+              variant='contained'
+              onClick={EffectShoppingHandler}
+              style={{ marginRight: '2rem' }}
+            >
+              購入する
+            </Button>
+            <Button
+              variant='outlined'
+              onClick={props.func}
+              style={{ marginLeft: '2rem' }}
+            >
+              やめておく
+            </Button>
           </Grid>
         </Grid>
       </Box>

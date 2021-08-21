@@ -20,7 +20,6 @@ export default function RestoreOption(props) {
         onClose={ToggleHandler}
         aria-labelledby='alert-dialog-title'
         aria-describedby='alert-dialog-description'
-        style={{backgroundColor: theme.palette.secondary.dark}}
       >
         <DialogTitle>Restored all data.</DialogTitle>
       </Dialog>

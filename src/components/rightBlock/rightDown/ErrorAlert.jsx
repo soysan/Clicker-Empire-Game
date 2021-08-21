@@ -4,7 +4,7 @@ import React from 'react'
 export default function ErrorAlert(props) {
   return (
     <>
-      <DialogTitle>{ props.message }</DialogTitle>
-      </>
+      <DialogTitle>{props.message}</DialogTitle>
+    </>
   )
 }

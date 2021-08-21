@@ -6,7 +6,10 @@ import { theme } from '../../../color';
 
 const useStyles = makeStyles({
   info: {
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.secondary.light,
+    borderRadius: '5px',
+    padding: '16px',
+    display: 'flex',
   },
   title: {
     fontSize: 30,
@@ -46,19 +49,13 @@ export default function ProductItem(props) {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          backgroundColor: theme.palette.primary.light,
-          borderRadius: '5px'
+          backgroundColor: theme.palette.secondary.light,
+          borderRadius: '5px',
         }}
       >
-        <ProductDetail itemData={itemContext} ref={0}/>
+        <ProductDetail itemData={itemContext} func={ToggleHandler} ref={0}/>
       </Modal>
       <div className={classes.info} onClick={ToggleHandler}>
-        <Grid
-          container
-          direction="row"
-          justifyContent="flex-start"
-          alignItems="center"
-        >
           <Grid
             container
             direction="column"
@@ -69,15 +66,13 @@ export default function ProductItem(props) {
               {itemContext.name}
             </Typography>
             <Typography variant="h6" gutterBottom>
-              {itemContext.price}
+              Price: ${itemContext.price}
             </Typography>
             <Typography variant="h6" gutterBottom>
-              +$ {itemContext.effect + effectString}
+              Effect: +$ {itemContext.effect + effectString}
             </Typography>
-            <img alt={itemContext.img.replace('.png', '')} src={itemContext.img} style={{width: '8rem'}}/>
           </Grid>
-          <Typography variant="h5">count</Typography>
-        </Grid>
+          <img alt={itemContext.img.replace('.png', '')} src={itemContext.img} style={{width: '8rem'}}/>
       </div>
     </>
   )

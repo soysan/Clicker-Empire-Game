@@ -6,6 +6,7 @@ import { UserContext, UserState } from '../../../context/user';
 import SaveOption from './SaveOption';
 import { decycle } from 'json-cyclic';
 import RestoreOption from './RestoreOption';
+import { theme } from '../../../color';
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -88,6 +89,7 @@ export default function Dials() {
         onOpen={ToggleDialOpenCloseHandler}
         open={open}
         direction="up"
+        ButtonProps={{ backgroundColor: theme.palette.secondary.dark }}
       >
         {actions.map((action) => (
           <SpeedDialAction
@@ -95,6 +97,7 @@ export default function Dials() {
             icon={action.icon}
             tooltipTitle={action.name}
             onClick={(event) => OpenOptionHandler(event, action.operation)}
+            ButtonProps={theme.palette.secondary.dark}
           />
         ))}
       </SpeedDial>
