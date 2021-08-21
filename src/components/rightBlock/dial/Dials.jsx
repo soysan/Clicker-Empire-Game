@@ -5,6 +5,7 @@ import { Dialog, makeStyles } from '@material-ui/core';
 import { UserContext, UserState } from '../../../context/user';
 import SaveOption from './SaveOption';
 import { decycle } from 'json-cyclic';
+import RestoreOption from './RestoreOption';
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -25,10 +26,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dials() {
-  console.log('dial open')
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [saveOpen, setSaveOpen] = useState(false);
+  const [resetOpen, setResetOpen] = useState(false);
   const user = useContext(UserContext);
 
   const OpenOptionHandler = (event, operation) => {
@@ -37,10 +38,14 @@ export default function Dials() {
       ToggleSaveHandler();
       localStorage.setItem(UserState, JSON.stringify(decycle(user)))
     } else if (operation === 'RESET') {
-      alert('reset')
+      ToggleResetHandler();
     } else if (operation === 'LIKE') {
       window.open('https://twitter.com/soylove2');
     }
+  }
+
+  const ToggleResetHandler = () => {
+    setResetOpen(!resetOpen);
   }
 
   const ToggleSaveHandler = () => {
@@ -66,6 +71,14 @@ export default function Dials() {
         aria-describedby='alert-dialog-description'
       >
         <SaveOption />
+      </Dialog>
+      <Dialog
+        open={resetOpen}
+        onClose={ToggleResetHandler}
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='aria-dialog-description'
+      >
+        <RestoreOption func={ToggleResetHandler}/>
       </Dialog>
       <SpeedDial
         ariaLabel="SpeedDial"

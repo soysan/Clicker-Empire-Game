@@ -4,11 +4,11 @@ export default function SaveOption() {
   return (
     <>
       <DialogTitle id='alert-dialog-title'>
-        We saved your data
+        Playing Data をセーブしました
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          Thank you for playing Click Empire Game.
+          ここまで遊んでくれてありがとうございます！
         </DialogContentText>
       </DialogContent>
     </>
