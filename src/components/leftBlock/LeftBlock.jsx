@@ -3,7 +3,6 @@ import Counter from './Counter';
 import Grid from '@material-ui/core/Grid'
 import { UserContext } from '../../context/user';
 import { theme } from '../../color';
-import zIndex from '@material-ui/core/styles/zIndex';
 
 export default function LeftBlock() {
   const user = useContext(UserContext);
