@@ -42,6 +42,13 @@ export default function AuthPage() {
       userData.name = 'Cheater';
     } else {
       userData.name = nameRef.current.value;
+      userData.age = 20;
+      userData.money = 50000;
+      userData.days = 0;
+      userData.addPerClick = 0;
+      userData.addPerSec = 0;
+      userData.count = 0;
+      userData.stock = 0;
     }
     RenderMainPage();
   }

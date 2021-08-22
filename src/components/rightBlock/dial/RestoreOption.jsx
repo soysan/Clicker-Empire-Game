@@ -17,7 +17,7 @@ export default function RestoreOption(props) {
       history.push('/')
     }, 2000)
   }
-  
+
   return (
     <>
       <Dialog
