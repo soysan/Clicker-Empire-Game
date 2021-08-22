@@ -13,7 +13,7 @@ from [Recursion](https://recursionist.io/)
 - @material-ui/lab 4.0.0-alpha.11
   
 ## Demo
-![demo](../project3/demo.gif)
+![demo](../project3/public/assets/demo.gif)
 ## URL
 [Clicker Empire Game](https://clicker-empire-game-soysan.vercel.app/)
 
